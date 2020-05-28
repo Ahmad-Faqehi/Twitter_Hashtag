@@ -1,0 +1,209 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: cairo;
+    text-align: center;
+}
+.ksa-style{
+    text-align: right;
+    background-color:#36b9cc;
+    color: white;
+}
+
+.center {
+    margin: 40px;
+
+}
+form input[type=text] {
+    padding: 2px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+form button {
+    float: right;
+    padding: 2px;
+    background: #36b9cc;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    width: 20%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.hash{
+    color: black;
+    margin: 50px 8px 20px;
+    /*background-color: white;*/
+    padding: 14px;
+    text-align: right;
+    border: .50px solid black;
+    border-radius: 10px
+}
+h2{
+    color: #36b9cc;
+}
+
+.footer{
+    color: white;
+    background-color: #0b2a1a;
+    padding: 5px;
+    margin-top: 350px
+}
+
+blockquote.twitter-tweet {
+    display: inline-block;
+    font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 16px;
+    border-color: #36b9cc #36b9cc #36b9cc;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    margin: 10px 5px;
+    padding: 0 16px 16px 16px;
+    max-width: 468px;
+}
+
+blockquote.twitter-tweet p {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px;
+}
+
+blockquote.twitter-tweet a {
+    color: #36b9cc;
+    font-weight: normal;
+    text-decoration: none;
+    outline: 0 none;
+}
+
+blockquote.twitter-tweet a:hover,
+blockquote.twitter-tweet a:focus {
+    text-decoration: underline;
+}
+
+.gtlw{
+    text-align: center;
+    margin: 20px 0 0 0;
+    font-size: 18px;
+    background: #227fce;
+    padding: 6px 0;
+    color: #fff;
+    border-radius: 4px 4px 0 0;
+}
+.social-btns .btn,
+.social-btns .btn:before,
+.social-btns .btn .fa {
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+    -webkit-transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
+    transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
+}
+.social-btns .btn:before {
+    top: 90%;
+    left: -110%;
+}
+.social-btns .btn .fa {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+}
+.social-btns .btn.facebook:before {
+    background-color: #3b5998;
+}
+.social-btns .btn.facebook .fa {
+    color: #3b5998;
+}
+.social-btns .btn.twitter:before {
+    background-color: #3cf;
+}
+.social-btns .btn.twitter .fa {
+    color: #3cf;
+}
+.social-btns .btn.google:before {
+    background-color: #32afed;
+}
+.social-btns .btn.google .fa {
+    color: #32afed;
+}
+.social-btns .btn.link:before {
+    background-color: #0073b2;
+}
+.social-btns .btn.link .fa {
+    color: #0073b2;
+}
+.social-btns .btn.whats:before {
+    background-color: #53d54d;
+}
+.social-btns .btn.whats .fa {
+    color: #53d54d;
+}
+.social-btns .btn.skype:before {
+    background-color: #00aff0;
+}
+.social-btns .btn.skype .fa {
+    color: #00aff0;
+}
+.social-btns .btn:focus:before,
+.social-btns .btn:hover:before {
+    top: -10%;
+    left: -10%;
+}
+.social-btns .btn:focus .fa,
+.social-btns .btn:hover .fa {
+    color: #fff;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.social-btns {
+
+    /*height: 50px;*/
+    padding: 24px 0px;
+    margin: 0 auto 0;
+    font-size: 0;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0 0 4px 4px;
+}
+.social-btns .btn {
+
+    border-color: #36b9cc;
+    display: inline-block;
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    line-height: 40px;
+    margin: 0 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 28%;
+    box-shadow: 0 5px 15px -5px rgba(0,0,0,0.1);
+    opacity: 0.99;
+
+}
+.social-btns .btn:before {
+    content: '';
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.social-btns .btn .fa {
+    font-size: 38px;
+    vertical-align: middle;
+}

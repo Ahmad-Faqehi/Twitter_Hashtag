@@ -3,26 +3,35 @@
 <?php
 $users = new User();
 $msg = "";
+$email = "";
+$username = "";
 if(isset($_POST["submit"])){
 
     $password1 = $_POST["password"];
     $password2 = $_POST["repassword"];
+    $email = $database->escape_string($_POST["email"]);
+    $username = $database->escape_string($_POST["username"]);
 
-    if($password1 !== $password2){
-        $msg = '<div class="bg-gradient-danger p-2 m-1 text-center text-lg text-light">كلمة المرور غير متطابقة</div>';
-      }else{
-    
-      $users->username = $_POST["username"];
-      $users->email = $_POST["email"];
-      $users->password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-      $users->user_roal = 2;
-    
-      $users->save();
-      $msg = '<div class="bg-gradient-success p-2 m-1 text-center text-lg text-light">تمت الاضافة بنجاح تحتاج الان الى تفعيل من المشرف</div>';
-      //redirect("users.php");
-    
-    }
+    if($users->check_email($email)){
+        $msg = '<div class="bg-gradient-danger p-2 m-1 text-center text-lg text-light">هذا الائميل مسجل مسبقاَ</div>';
+    }elseif(($users->check_username($username))) {
+        $msg = '<div class="bg-gradient-danger p-2 m-1 text-center text-lg text-light">  غير متاح ' . $username . ' أسم المستخدم </div>';
+    }else{
 
+            if ($password1 !== $password2) {
+                $msg = '<div class="bg-gradient-danger p-2 m-1 text-center text-lg text-light">كلمة المرور غير متطابقة</div>';
+            } else {
+
+                $users->username = $username;
+                $users->email = $email;
+                $users->password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+                $users->user_roal = 2;
+
+                $users->save();
+                $msg = '<div class="bg-gradient-success p-2 m-1 text-center text-lg text-light">تمت الاضافة بنجاح تحتاج الان الى تفعيل من المشرف</div>';
+                //redirect("users.php");
+            }
+        }
 }
 
 ?>
@@ -67,17 +76,17 @@ if(isset($_POST["submit"])){
               <?php echo $msg ?>
               <form class="user" method="POST" action="">
                 <div class="form-group">
-                  <input type="text" name="username" class="form-control form-control-user" id="exampleInputEmail" placeholder="Username">
+                  <input type="text" name="username" class="form-control form-control-user" id="exampleInputEmail" value="<?php echo htmlentities($username); ?>" placeholder="Username" required>
                 </div>
                   <div class="form-group">
-                      <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="email">
+                      <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" value="<?php echo htmlentities($email); ?>" placeholder="email" required>
                   </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                    <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" required>
                   </div>
                   <div class="col-sm-6">
-                    <input type="password" name="repassword" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
+                    <input type="password" name="repassword" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password" required>
                   </div>
                 </div>
                 <input type="submit" value="تسجيل" name="submit" class="btn btn-primary btn-user Font-tajawal btn-block">

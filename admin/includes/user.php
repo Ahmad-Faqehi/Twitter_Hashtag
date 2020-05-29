@@ -84,7 +84,19 @@ class User extends Db_object{
     public function check_email($email){
 
         global $database;
-        $sql = $database->query("SELECT * FROM users WHERE email = '{$database->escape_string($email)}' LIMIT 1");
+        $sql = $database->query("SELECT * FROM ". self::$db_table. " WHERE email = '{$database->escape_string($email)}' LIMIT 1");
+        if(mysqli_num_rows($sql) > 0) {
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    public function check_username($username){
+
+        global $database;
+        $sql = $database->query("SELECT * FROM ". self::$db_table. " WHERE username = '{$database->escape_string($username)}' LIMIT 1");
         if(mysqli_num_rows($sql) > 0) {
             return true;
         }else{
@@ -97,7 +109,7 @@ class User extends Db_object{
 
         global $database;
         $token = generateNewString();
-        $sql = $database->query("UPDATE users set token = '{$database->escape_string($token)}' , token_end = DATE_ADD(NOW(), INTERVAL 5 MINUTE)  WHERE email = '{$database->escape_string($email)}' ");
+        $sql = $database->query("UPDATE ". self::$db_table. " set token = '{$database->escape_string($token)}' , token_end = DATE_ADD(NOW(), INTERVAL 5 MINUTE)  WHERE email = '{$database->escape_string($email)}' ");
 
         return $token;
     }

@@ -114,11 +114,6 @@ class User extends Db_object{
         return $token;
     }
 
-    public function send_mail($email,$token){
-
-
-   }
-
 
 
 }

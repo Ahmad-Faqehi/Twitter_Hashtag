@@ -13,25 +13,30 @@ if(isset($_POST['submit'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
-    $new_found =  User::check_password($username,$password);
+    if(empty($username) || empty($password)){
+        $the_message = '<div class="bg-gradient-danger m-2 text-center text-lg text-light">يحب تفعيل مل الحقول</div>';
 
-    if($new_found) {
-        $user_found = User::verify_username($username);
-        if($user_found->user_roal == 1){
-        $session->login($user_found);
-        $_SESSION["name"] = $username;
+    }else {
 
-        redirect("index.php");
-        }else{
-            $the_message = '<div class="bg-gradient-warning m-2 text-center text-lg text-light">يحب تفعيل حسابك من المشرف</div>';
+        $new_found = User::check_password($username, $password);
+
+        if ($new_found) {
+            $user_found = User::verify_username($username);
+            if ($user_found->user_roal == 1) {
+                $session->login($user_found);
+                $_SESSION["name"] = $username;
+
+                redirect("index.php");
+            } else {
+                $the_message = '<div class="bg-gradient-warning m-2 text-center text-lg text-light">يحب تفعيل حسابك من المشرف</div>';
+            }
+
+        } else {
+
+            $the_message = '<div class="bg-gradient-danger m-2 text-center text-lg text-light">أسم المستخدم و كلمة المرور غير صحيحة</div>';
+
         }
-
-    } else {
-
-        $the_message = '<div class="bg-gradient-danger m-2 text-center text-lg text-light">أسم المستخدم و كلمة المرور غير صحيحة</div>';
-
     }
-
 } else {
 
     $the_message = "";
@@ -85,10 +90,10 @@ if(isset($_POST['submit'])) {
                                 </div>
                                 <form action="" class="user" method="POST" >
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" name="username" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="username...">
+                                        <input type="text" class="form-control form-control-user" name="username" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="username..." required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" name="password" id="exampleInputPassword" placeholder="Password">
+                                        <input type="password" class="form-control form-control-user" name="password" id="exampleInputPassword" placeholder="Password" required>
                                     </div>
                                     <input type="submit" name="submit" value="دخول" class="btn btn-primary btn-user font-weight-bold Font-tajawal btn-block">
                                 </form>

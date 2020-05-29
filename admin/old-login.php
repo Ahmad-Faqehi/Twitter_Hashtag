@@ -1,5 +1,5 @@
 <?php include("includes/init.php");
-redirect("new-old-new-login.php");
+redirect("new-login.php");
 ?>
 <?php 
 

@@ -10,7 +10,7 @@ if($user->user_roal != 1)
  ?>
 <?php ob_start(); ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
   
 
 <head>

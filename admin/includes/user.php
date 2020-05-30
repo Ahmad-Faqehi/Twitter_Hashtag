@@ -109,7 +109,7 @@ class User extends Db_object{
 
         global $database;
         $token = generateNewString();
-        $sql = $database->query("UPDATE ". self::$db_table. " set token = '{$database->escape_string($token)}' , token_end = DATE_ADD(NOW(), INTERVAL 5 MINUTE)  WHERE email = '{$database->escape_string($email)}' ");
+        $sql = $database->query("UPDATE ". self::$db_table. " set token = '{$database->escape_string($token)}' , token_end = DATE_ADD(NOW(), INTERVAL 30 MINUTE)  WHERE email = '{$database->escape_string($email)}' ");
 
         return $token;
     }

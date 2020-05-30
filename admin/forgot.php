@@ -21,18 +21,17 @@ if(isset($_POST["submit"]) && !empty($_POST["email"])){
         $mail = new PHPMailer();
         $mail->addAddress($email);
         $mail->setFrom("NoReplay@lop72.com", "Lop72");
-        $mail->Subject = "Reset Password";
+        $mail->Subject = "أستعادة كلمة مرور";
         $mail->isHTML(true);
         $mail->Body = "
 	            Hi,<br><br>
 	            
-	            In order to reset your password, please click on the link below:<br>
+	            لقد طلبت أعادة تعين لكلمة المرور. الرجاء الضفط على الرابط التالي<br>
 	            <a href='
-	            http://domain.com/resetPassword.php?email=$email&token=$token
-	            '>http://domain.com/resetPassword.php?email=$email&token=$token</a><br><br>
+	            http://livern.890m.com/new-password.php?email=$email&token=$token
+	            '>http://livern.890m.com/new-password.php?email=$email&token=$token</a><br><br>
 	            
-	            Kind Regards,<br>
-	            My Name
+	            موقع سالفة هاشتاق,<br>
 	        ";
         if($mail->send()){
             $the_message = "<div class='text-success font-weight-bold' > تم أرسال الطلب الرجاء الذهاب الى الائميل سوف تجد رسالة طلب أستعادة كلمة مرور. اذا لم تجدها قم بتاكد من الرسائل الموجودة في السبام </div>";
